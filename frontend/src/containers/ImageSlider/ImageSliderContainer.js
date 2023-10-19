@@ -14,7 +14,7 @@ const ImageSliderContainer = (props) => {
     };
 
     const slideImages = (index) => ({
-        backgroundImage: `url(${SERVER}/uploads/${images[index]})`
+        backgroundImage: `url(${SERVER}/product/images/${images[index]})`
     });
 
     const selectedImage = (index) => (
