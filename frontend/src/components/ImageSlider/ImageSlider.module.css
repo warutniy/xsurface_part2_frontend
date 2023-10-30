@@ -27,3 +27,35 @@
     border-radius: 2px;
     cursor: pointer;
 }
+
+/* =============== MEDIA QUERIES (MEDIUM DEVICES) =============== */
+@media screen and (max-width: 725px) {
+    .button_container {
+        top: 175px;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .button_container {
+        top: 190px;
+    }
+}
+
+/* =============== MEDIA QUERIES (SMALL DEVICES) =============== */
+@media screen and (max-width: 427px) {
+    .button_container {
+        top: 160px;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .button_container {
+        top: 190px;
+    }
+}
+
+@media screen and (max-width: 205px) {
+    .button_container {
+        top: 160px;
+    }
+}

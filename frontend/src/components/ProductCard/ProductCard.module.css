@@ -72,7 +72,6 @@
 
     .product_card {
         min-width: 187.5px;
-        height: 335px;
     }
 
     .image {
@@ -96,7 +95,6 @@
 
     .product_card {
         min-width: 175px;
-        height: 335px;
     }
 }
 
@@ -122,7 +120,6 @@
 
     .product_card {
         min-width: 162.5px;
-        height: 335px;
     }
 }
 
@@ -138,11 +135,45 @@
     }
 }
 
+@media screen and (max-width: 725px) {
+    .product_card {
+        height: 310px;
+    }
+
+    .product_name {
+        top: 200px;
+    }
+    
+    .code {
+        top: 222px;
+    }
+    
+    .price {
+        top: 267.5px;
+    }
+}
+
 @media screen and (max-width: 675px) {
     .wrapper {
         width: 444px;
         grid-template-columns: 1fr 1fr;
         gap: 40px 24px;
+    }
+
+    .product_card {
+        height: 335px;
+    }
+
+    .product_name {
+        top: 216px;
+    }
+    
+    .code {
+        top: 240px;
+    }
+    
+    .price {
+        top: 289px;
     }
 }
 
@@ -155,7 +186,6 @@
 
     .product_card {
         min-width: 150px;
-        height: 335px;
     }
 }
 
@@ -182,6 +212,22 @@
     .wrapper {
         gap: 25px 12px;
     }
+
+    .product_card {
+        height: 285px;
+    }
+
+    .product_name {
+        top: 184px;
+    }
+    
+    .code {
+        top: 205px;
+    }
+    
+    .price {
+        top: 246px;
+    }
 }
 
 @media screen and (max-width: 391px) {
@@ -196,6 +242,22 @@
         grid-template-columns: 1fr;
         gap: 40px 24px;
     }
+
+    .product_card {
+        height: 335px;
+    }
+
+    .product_name {
+        top: 216px;
+    }
+    
+    .code {
+        top: 240px;
+    }
+    
+    .price {
+        top: 289px;
+    }
 }
 
 @media screen and (max-width: 245px) {
@@ -205,7 +267,29 @@
     }
 
     .product_card {
+        min-width: 150px;
+    }
+}
+
+@media screen and (max-width: 205px) {
+    .wrapper {
+        gap: 25px 12px;
+    }
+
+    .product_card {
         min-width: 0px;
-        height: 335px;
+        height: 285px;
+    }
+
+    .product_name {
+        top: 184px;
+    }
+    
+    .code {
+        top: 205px;
+    }
+    
+    .price {
+        top: 246px;
     }
 }
