@@ -38,3 +38,22 @@ h3 {
   font-size: 0.375em;
   line-height: 1.5em;
 }
+
+mark {
+  background-color: #fff798;
+  color: black;
+}
+
+/* =============== MEDIA QUERIES (MEDIUM DEVICES) =============== */
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 28px;
+  }
+}
+
+/* =============== MEDIA QUERIES (SMALL DEVICES) =============== */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 24px;
+  }
+}

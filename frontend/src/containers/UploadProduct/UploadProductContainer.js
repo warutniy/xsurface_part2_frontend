@@ -30,19 +30,19 @@ const UploadProductContainer = (props) => {
     const handleChangeFile = (event) => {
         const files = event.target.files;
         if (files.length === 0) return;
+        const uniqFiles = [];
+        for ( let i = 0; i < files.length; i++ ) {
+            if ( !images.some((image) => image.name === files[i].name) ) {
+                uniqFiles.push(files[i].name);
+            };
+        };
         let messages = [];
         for ( let i = 0; i < files.length; i++ ) {
+            if ( images.length + uniqFiles.length > 6 ) {
+                const message = 'Images must not exceed 6 images';
+                messages.push(message);
+                break;
 
-            if ( images.length >= 6 ) {
-                if ( !images.some((image) => image.name === files[i].name) ) {
-                    const message = 'Images are over 6/6 images';
-                    alert(message);
-                    messages = [];
-                    break;
-                } else {
-                    const message = `You have already selected image name: ${files[i].name}`;
-                    messages.push(message);
-                };
             } else {
                 if ( files[i].type.split('/')[0] !== 'image' ) {
                     const message = `File name: ${files[i].name} is not image file`;
@@ -58,39 +58,31 @@ const UploadProductContainer = (props) => {
                         messages.push(message);
 
                     } else {
-                        if ( images.length + i - messages.length >= 6 ) {
-                            const message = 'Images are over 6/6 images';
-                            alert(message);
-                            messages = [];
-                            break;
-                        } else {
-                            if ( !images.some((image) => image.name === files[i].name) ) {
-                                setImages((prevImages) => [
-                                    ...prevImages,
-                                    {
-                                        file: files[i],
-                                        name: files[i].name,
-                                        url: URL.createObjectURL(files[i]),
-                                    },
-                                ]);
+                        if ( !images.some((image) => image.name === files[i].name) ) {
+                            setImages((prevImages) => [
+                                ...prevImages,
+                                {
+                                    file: files[i],
+                                    name: files[i].name,
+                                    url: URL.createObjectURL(files[i]),
+                                },
+                            ]);
 
-                                // validation images error
-                                setObjError((prev) => {
-                                    return {
-                                        ...prev,
-                                        images: null
-                                    };
-                                });
-                                
-                            } else {
-                                const message = `You have already selected image name: ${files[i].name}`;
-                                messages.push(message);
-                            };
+                            // validation images error
+                            setObjError((prev) => {
+                                return {
+                                    ...prev,
+                                    images: null
+                                };
+                            });
+                            
+                        } else {
+                            const message = `You have already selected image name: ${files[i].name}`;
+                            messages.push(message);
                         };
                     };
                 };
             };
-            
         };
         
         if ( messages.length > 0 ) {
@@ -176,7 +168,6 @@ const UploadProductContainer = (props) => {
                 alert(messages[i]);
             };
         };
-        
     };
 
     const deleteImage = (index) => {
@@ -420,6 +411,7 @@ const UploadProductContainer = (props) => {
                 setProduct({});
                 setObjError({});
                 onToggle();
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             } catch (error) {
                 console.log(error);
             };

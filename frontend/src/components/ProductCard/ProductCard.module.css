@@ -1,14 +1,14 @@
 .wrapper {
     width: 1096px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 40px 24px;
     margin: 40px auto 100px;
 }
 
 .product_card {
     position: relative;
-    width: 200px;
+    min-width: 200px;
     height: 335px;
     background-color: #FFFFFF;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -18,7 +18,7 @@
 
 .image {
     position: absolute;
-    width: 200px;
+    width: 100%;
     height: 200px;
 }
 
@@ -61,4 +61,151 @@
     font-weight: 600;
     font-size: 0.625em;
     line-height: 1.5em;
+}
+
+/* =============== MEDIA QUERIES (MEDIUM DEVICES) =============== */
+@media screen and (max-width: 1440px) {
+    .wrapper {
+        width: 76.11%;
+        gap: 35px 20px;
+    }
+
+    .product_card {
+        min-width: 187.5px;
+        height: 335px;
+    }
+
+    .image {
+        height: 60%;
+    }
+}
+
+@media screen and (max-width: 1340px) {
+    .wrapper {
+        width: 912px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px 24px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        width: 76.11%;
+        gap: 35px 20px;
+    }
+
+    .product_card {
+        min-width: 175px;
+        height: 335px;
+    }
+}
+
+@media screen and (max-width: 1095px) {
+    .wrapper {
+        gap: 30px 16px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .wrapper {
+        width: 678px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 24px;
+    }
+}
+
+@media screen and (max-width: 891px) {
+    .wrapper {
+        width: 76.11%;
+        gap: 35px 20px;
+    }
+
+    .product_card {
+        min-width: 162.5px;
+        height: 335px;
+    }
+}
+
+@media screen and (max-width: 819px) {
+    .wrapper {
+        gap: 30px 16px;
+    }
+}
+
+@media screen and (max-width: 747px) {
+    .wrapper {
+        gap: 25px 12px;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .wrapper {
+        width: 444px;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 24px;
+    }
+}
+
+/* =============== MEDIA QUERIES (SMALL DEVICES) =============== */
+@media screen and (max-width: 585px) {
+    .wrapper {
+        width: 76.11%;
+        gap: 35px 20px;
+    }
+
+    .product_card {
+        min-width: 150px;
+        height: 335px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .wrapper {
+        width: 86.11%;
+        gap: 40px 24px;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .wrapper {
+        gap: 35px 20px;
+    }
+}
+
+@media screen and (max-width: 463px) {
+    .wrapper {
+        gap: 30px 16px;
+    }
+}
+
+@media screen and (max-width: 427px) {
+    .wrapper {
+        gap: 25px 12px;
+    }
+}
+
+@media screen and (max-width: 391px) {
+    .wrapper {
+        gap: 20px 8px;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .wrapper {
+        width: 210px;
+        grid-template-columns: 1fr;
+        gap: 40px 24px;
+    }
+}
+
+@media screen and (max-width: 245px) {
+    .wrapper {
+        width: 86.11%;
+        gap: 35px 20px;
+    }
+
+    .product_card {
+        min-width: 0px;
+        height: 335px;
+    }
 }

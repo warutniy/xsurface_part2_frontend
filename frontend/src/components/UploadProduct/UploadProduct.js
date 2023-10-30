@@ -19,7 +19,9 @@ const UploadProduct = (props) => {
           
   return (
     <div className={styles.wrapper}>
-      <div className={styles.title}><h1>Upload Product</h1></div>
+      <div className={styles.title_container}>
+        <div className={styles.title}><h1>Upload Product</h1></div>
+      </div>
       <div className={styles.form_box}>
         <form onSubmit={onSubmit}>
           <div className={styles.upload_box}>

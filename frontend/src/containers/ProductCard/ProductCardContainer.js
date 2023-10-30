@@ -11,6 +11,13 @@ const ProductCardContainer = (props) => {
         return newText.join(' ');    
     };
 
+    // edit format highlighted product name
+    const formatHighlightedProduct = (arr, str) => {
+        const filteredArray = arr.filter((item) => item.path === str);
+        const resultArray = filteredArray[0].texts;
+        return resultArray;
+    };
+
     // edit format price
     const formatPrice = (price) => {
         const numPrice = Number(price);
@@ -34,6 +41,7 @@ const ProductCardContainer = (props) => {
           <ProductCard
             products={products} 
             formatProduct={formatProduct}
+            formatHighlightedProduct={formatHighlightedProduct}
             formatPrice={formatPrice}
           />  
         </>

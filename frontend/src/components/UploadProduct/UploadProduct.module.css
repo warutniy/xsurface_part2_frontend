@@ -1,16 +1,28 @@
 .wrapper {
-    margin: 0;
+    width: 1440px;
+    margin: 0 auto;
     padding: 0;
 }
 
+.title_container {
+    position: relative;
+    width: 100%;
+    height: 144px;
+    margin-bottom: 32px;
+}
+
 .title {
-    width: 1242px;
-    margin: 96px auto 32px;
+    position: absolute;
+    top: 96px;
+    left: 99px;
+    height: 48px;
+    display: flex;
+    align-items: center;
 }
 
 .form_box {
     width: 924px;
-    margin: 0 auto 100px;
+    margin: 32px auto 100px;
 }
 
 /*---------------------------------------------------------------------------- upload box area ----------------------------------------------------------------------------*/
@@ -31,10 +43,6 @@
     user-select: none;
     -webkit-user-select: none;
 }
-
-/* .drag_area .visible {
-    font-size: 18px;
-} */
 
 .upload_container {
     margin-top: 125px;
@@ -94,13 +102,14 @@
 /*---------------------- show image area ----------------------*/
 .image_container {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     padding: 15px 0 5px;
     gap: 10.8px;
 }
 
 .image {
-    width: 145px;
+    min-width: 145px;
     height: 145px;
     position: relative;
 }
@@ -112,7 +121,8 @@
     width: 30px;
     height: 30px;
     background-color: rgba(241, 86, 35, 1);
-    font-size: 0.625em;
+    /* font-size: 0.625em; */
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,11 +151,6 @@
     border-radius: 10px;
     object-fit: cover;
 }
-
-/* .drag_area .on_drop,
-.drag_area.dragover .visible {
-    display: none;
-} */
 
 .drag_area input {
     display: none;
@@ -276,4 +281,101 @@
 .valid p {
     color: green;
     font-size: 0.4375em;
+}
+
+/* =============== MEDIA QUERIES (MEDIUM DEVICES) =============== */
+@media screen and (max-width: 1440px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    .title_container {
+        width: 86.11%;
+        margin: 0 auto 32px;
+    }
+
+    .title {
+        left: -1px;
+    }
+
+    .form_box {
+        width: 64.17%;
+    }
+
+    .image_container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .btn_box {
+        justify-content: center;
+    }
+
+    .cancel_btn {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .image_container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .title_container {
+        height: 114px;
+    }
+
+    .title {
+        top: 66px;
+    }
+}
+
+@media screen and (max-width: 955px) {
+    .form_box {
+        width: 76.11%;
+    }
+}
+
+@media screen and (max-width: 805px) {
+    .image_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* =============== MEDIA QUERIES (SMALL DEVICES) =============== */
+@media screen and (max-width: 600px) {
+    .image_container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .title_container {
+        height: 84px;
+    }
+
+    .title {
+        top: 36px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .form_box {
+        width: 86.11%;
+    }
+
+    .btn_box {
+        flex-direction: column-reverse;
+    }
+
+    .confirm_btn,
+    .cancel_btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .image_container {
+        grid-template-columns: 1fr;
+    }
 }
