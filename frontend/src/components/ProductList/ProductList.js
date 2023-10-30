@@ -46,7 +46,11 @@ const ProductList = (props) => {
         </div>
       </div>
       { 
-        !products ? <div className={styles.loading}><h2>Loading Products.....</h2></div> : 
+        !products ? 
+        <div className={styles.loading_container}>
+          <div className={styles.loading}></div>
+          <h2>Loading...</h2>
+        </div> : 
         <ProductCardContainer 
           products={products}
         />  

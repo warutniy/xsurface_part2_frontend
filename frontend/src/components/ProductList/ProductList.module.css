@@ -99,15 +99,32 @@
     margin: 0 8px;
 }
 
-.loading {
+.loading_container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625em;
     margin-top: 96px;
 }
 
-.loading h2 {
+.loading_container h2 {
     font-weight: 400;
     color: #6C6C70;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.25em solid #B3B8BE;
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spinner 1s linear infinite;
 }
 
 /* =============== MEDIA QUERIES (MEDIUM DEVICES) =============== */
@@ -144,7 +161,7 @@
         top: 156px;
     }
 
-    .loading {
+    .loading_container {
         margin-top: 76px;
     }
 }
@@ -163,7 +180,7 @@
         top: 136px;
     }
 
-    .loading {
+    .loading_container {
         margin-top: 56px;
     }
 }
