@@ -99,6 +99,17 @@
     margin: 0 8px;
 }
 
+.loading {
+    display: flex;
+    justify-content: center;
+    margin-top: 96px;
+}
+
+.loading h2 {
+    font-weight: 400;
+    color: red;
+}
+
 /* =============== MEDIA QUERIES (MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1440px) {
     .wrapper {
@@ -132,6 +143,10 @@
     .search_container {
         top: 156px;
     }
+
+    .loading {
+        margin-top: 76px;
+    }
 }
 
 /* =============== MEDIA QUERIES (SMALL DEVICES) =============== */
@@ -146,5 +161,9 @@
 
     .search_container {
         top: 136px;
+    }
+
+    .loading {
+        margin-top: 56px;
     }
 }

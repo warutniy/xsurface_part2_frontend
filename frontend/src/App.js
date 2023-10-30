@@ -5,7 +5,7 @@ import { getProduct, getAutoComplete, getSearchProduct } from './api/product';
 
 function App() {
 
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState();
   const [inputTerm, setInputTerm] = useState("");
   const [autoComplete, setAutoComplete] = useState([]);
   const [toggle, setToggle] = useState(false);
