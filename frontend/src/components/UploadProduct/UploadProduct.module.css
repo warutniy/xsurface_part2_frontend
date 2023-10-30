@@ -177,7 +177,7 @@
 
 .detail {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     height: 24px;
     margin-bottom: 10px;
 }
@@ -266,21 +266,21 @@
 /*---------------------------------------------------------------------------- button box area ----------------------------------------------------------------------------*/
 
 .error {
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .error p {
     color: red;
-    font-size: 0.4375em;
+    font-size: 0.375em;
 }
 
 .valid {
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .valid p {
     color: green;
-    font-size: 0.4375em;
+    font-size: 0.375em;
 }
 
 /* =============== MEDIA QUERIES (MEDIUM DEVICES) =============== */
@@ -329,6 +329,14 @@
     .title {
         top: 66px;
     }
+
+    .error {
+        margin-left: 7.5px;
+    }
+
+    .valid {
+        margin-left: 7.5px;
+    }
 }
 
 @media screen and (max-width: 955px) {
@@ -356,6 +364,14 @@
     .title {
         top: 36px;
     }
+
+    .error {
+        margin-left: 5px;
+    }
+
+    .valid {
+        margin-left: 5px;
+    }
 }
 
 @media screen and (max-width: 535px) {
@@ -377,5 +393,15 @@
 @media screen and (max-width: 350px) {
     .image_container {
         grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 315px) {
+    .error p {
+        font-size: 0.3125em;
+    }
+    
+    .valid p {
+        font-size: 0.3125em;
     }
 }

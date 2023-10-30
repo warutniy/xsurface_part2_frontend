@@ -334,14 +334,14 @@ const UploadProductContainer = (props) => {
                 setObjError((prev) => {
                     return {
                         ...prev,
-                        [name]: "Product name must not exceed 16 characters."
+                        [name]: "Name must not exceed 16 characters."
                     };;
                 });
             } else if ( value.match(/\S/g) === null || value.match(/\S/g).length < 4 ) {
                 setObjError((prev) => {
                     return {
                         ...prev,
-                        [name]: "Product name must be at least 4 characters."
+                        [name]: "Name must be at least 4 characters."
                     };;
                 });
             } else {
@@ -418,6 +418,12 @@ const UploadProductContainer = (props) => {
         };
     };
 
+    const handleReset = () => {
+        setImages([]);
+        setProduct({});
+        setObjError({});
+    };
+
     return (
         <>
             <UploadProduct
@@ -435,6 +441,7 @@ const UploadProductContainer = (props) => {
                 onDrop={handleDrop}
                 onChangeProduct={handleChangeProduct}
                 onSubmit={handleSubmit}
+                onReset={handleReset}
             />
         </>
     );

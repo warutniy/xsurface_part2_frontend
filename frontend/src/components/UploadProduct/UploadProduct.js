@@ -15,7 +15,8 @@ const UploadProduct = (props) => {
           onDragLeave,
           onDrop,
           onChangeProduct,
-          onSubmit } = props;
+          onSubmit,
+          onReset } = props;
           
   return (
     <div className={styles.wrapper}>
@@ -23,11 +24,11 @@ const UploadProduct = (props) => {
         <div className={styles.title}><h1>Upload Product</h1></div>
       </div>
       <div className={styles.form_box}>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} onReset={onReset}>
           <div className={styles.upload_box}>
             <div className={styles.detail}>
               <h2>Upload image</h2>
-              { objError.images && <div className={styles.error}><p>***** {objError.images} *****</p></div> }
+              { objError.images && <div className={styles.error}><p>({objError.images})</p></div> }
             </div>
 
             {/* drag area */}
@@ -85,7 +86,7 @@ const UploadProduct = (props) => {
           <div className={styles.input_box}>
             <div className={styles.detail}>
               <h2>Product name</h2>
-              { objError.productName && <div className={styles.error}><p>***** {objError.productName} *****</p></div> }
+              { objError.productName && <div className={styles.error}><p>({objError.productName})</p></div> }
             </div> 
             <div className={styles.input_container}>
               <input type="text" name="productName" value={product.productName || ''} onChange={onChangeProduct} placeholder='Product name' />
@@ -94,8 +95,8 @@ const UploadProduct = (props) => {
           <div className={styles.input_box}>
             <div className={styles.detail}>
               <h2>Code</h2>
-              { objError.code && <div className={styles.error}><p>***** {objError.code} *****</p></div> }
-              { objError.code === null && <div className={styles.valid}><p>***** Code pattern is exactly XX-0000. *****</p></div> }
+              { objError.code && <div className={styles.error}><p>({objError.code})</p></div> }
+              { objError.code === null && <div className={styles.valid}><p>(Code pattern is exactly XX-0000.)</p></div> }
             </div>
             <div className={styles.input_container}>
               <input type="text" name="code" value={product.code || ''} onChange={onChangeProduct} placeholder='XX-0000' />
@@ -104,7 +105,7 @@ const UploadProduct = (props) => {
           <div className={styles.input_box}>
             <div className={styles.detail}>
               <h2>Price</h2>
-              { objError.price && <div className={styles.error}><p>***** {objError.price} *****</p></div> }
+              { objError.price && <div className={styles.error}><p>({objError.price})</p></div> }
             </div>
             <div className={styles.input_container}>
               <input type="text" name="price" value={product.price || ''} onChange={onChangeProduct} placeholder='฿1,000' />
