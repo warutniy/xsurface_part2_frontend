@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import ProductList from '../../components/ProductList/ProductList';
+import { ProductContext } from '../../contexts/ProductContext';
 
-const ProductListContainer = (props) => {
+const ProductListContainer = () => {
 
-    const { products,
-            inputTerm,
-            autoComplete,
-            onChangeTerm,
-            onSearchTerm } = props;
+    const { fetchAutoCompleteData, resetAutoCompleteData, fetchSearchData } = useContext(ProductContext);
+
+    const [inputTerm, setInputTerm] = useState("");
+
+    const handleChangeTerm = async (event) => {
+        try {
+            const { value } = event.target;
+            setInputTerm(value);
+            await fetchAutoCompleteData(value);
+        } catch (error) {
+            console.log(error);
+        };
+    };
+
+    const handleSearchTerm = async (event, searchTerm) => {
+        event.preventDefault();
+    
+        try {
+            setInputTerm(searchTerm);
+            resetAutoCompleteData();
+            await fetchSearchData(searchTerm);
+        } catch (error) {
+            console.log(error);
+        };
+    };
 
     const searchContainerStyle = (input) => (
         !input ? {} : { borderColor: 'rgba(223,225,229,0)', boxShadow: '0px 1px 6px rgba(32,33,36,.28)' }
@@ -20,11 +41,9 @@ const ProductListContainer = (props) => {
     return (
         <>
             <ProductList 
-                products={products}
                 inputTerm={inputTerm}
-                autoComplete={autoComplete}
-                onChangeTerm={onChangeTerm}
-                onSearchTerm={onSearchTerm}
+                onChangeTerm={handleChangeTerm}
+                onSearchTerm={handleSearchTerm}
                 searchContainerStyle={searchContainerStyle}
                 dropdownLineStyle={dropdownLineStyle}
             />

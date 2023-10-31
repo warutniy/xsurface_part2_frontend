@@ -1,6 +1,6 @@
-import React, {useState, useRef} from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import UploadProduct from '../../components/UploadProduct/UploadProduct';
-import { createProduct } from '../../api/product';
+import { ProductContext } from '../../contexts/ProductContext';
 
 const defaultProductData = {
     productName: '',
@@ -8,9 +8,9 @@ const defaultProductData = {
     price: ''
 };
 
-const UploadProductContainer = (props) => {
+const UploadProductContainer = () => {
 
-    const { onToggle } = props;
+    const { createProduct } = useContext(ProductContext);
 
     const fileInputRef = useRef(null);
     const [images, setImages] = useState([]);
@@ -407,11 +407,7 @@ const UploadProductContainer = (props) => {
                 };
     
                 await createProduct(formData);
-                setImages([]);
-                setProduct({});
-                setObjError({});
-                onToggle();
-                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                
             } catch (error) {
                 console.log(error);
             };

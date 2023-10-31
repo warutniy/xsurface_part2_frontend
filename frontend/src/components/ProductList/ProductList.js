@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './ProductList.module.css';
 import ProductCardContainer from '../../containers/ProductCard/ProductCardContainer';
+import { ProductContext } from '../../contexts/ProductContext';
 
 const ProductList = (props) => {
 
-  const { products, 
-          inputTerm, 
-          autoComplete, 
+  const { inputTerm, 
           onChangeTerm, 
           onSearchTerm, 
           searchContainerStyle, 
           dropdownLineStyle } = props;
+
+  const { products, autoComplete, term } = useContext(ProductContext);
 
   return (
     <div className={styles.wrapper}>
@@ -50,10 +51,15 @@ const ProductList = (props) => {
         <div className={styles.loading_container}>
           <div className={styles.loading}></div>
           <h2>Loading...</h2>
-        </div> : 
-        <ProductCardContainer 
-          products={products}
-        />  
+        </div> : (
+          term && products.length === 0 ?
+          <div className={styles.loading_container}>
+            <h2>Your search - <strong>{term}</strong> - did not match any documents.</h2>
+          </div> :
+          <ProductCardContainer 
+            products={products}
+          /> 
+        ) 
       }
     </div>
   );

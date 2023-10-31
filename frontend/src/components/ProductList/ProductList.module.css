@@ -112,6 +112,10 @@
     color: #6C6C70;
 }
 
+.loading_container h2 strong {
+    color: black;
+}
+
 @keyframes spinner {
     to {
         transform: rotate(360deg);
