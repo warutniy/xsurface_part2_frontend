@@ -54,7 +54,7 @@ const ProductList = (props) => {
         </div> : (
           term && products.length === 0 ?
           <div className={styles.loading_container}>
-            <h2>Your search - <strong>{term}</strong> - did not match any documents.</h2>
+            <h2>Your search - <strong>{term}</strong> - did not match any items.</h2>
           </div> :
           <ProductCardContainer 
             products={products}
