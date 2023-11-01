@@ -13,6 +13,67 @@ const ImageSliderContainer = (props) => {
         setCurrentIndex(imageIndex);
     };
 
+    let startX = 0;
+    let isDragging = false;
+
+    const handleMouseDown = (event) => {
+        event.preventDefault();
+
+        isDragging = true;
+        startX = event.clientX;
+    };
+
+    const handleMouseMove = (event) => {
+        event.preventDefault();
+
+        if (!isDragging) return;
+        const currentX = event.clientX;
+        const deltaX = startX - currentX;
+
+        if ( deltaX > 50 ) {
+            // Swipe left to show the next slide
+            if ( currentIndex < images.length - 1 ) {
+                setCurrentIndex((prevIndex) => prevIndex + 1);
+                isDragging = false;
+            };
+        } else if ( deltaX < -50 ) {
+            // Swipe right to show the previous slide
+            if ( currentIndex > 0 ) {
+                setCurrentIndex((prevIndex) => prevIndex - 1);
+                isDragging = false;
+            };
+        };
+    };
+
+    const handleMouseUp = (event) => {
+        event.preventDefault();
+
+        isDragging = false;
+    };
+
+    let touchStartX = 0;
+
+    const handleTouchStart = (event) => {
+        touchStartX = event.touches[0].clientX;
+    };
+
+    const handleTouchMove = (event) => {
+        const touchEndX = event.touches[0].clientX;
+        const deltaX = touchStartX - touchEndX;
+
+        if ( deltaX > 50 ) {
+            // Swipe left to show the next slide
+            if ( currentIndex < images.length - 1 ) {
+                setCurrentIndex( currentIndex + 1 );
+            };
+        } else if ( deltaX < -50 ) {
+            // Swipe right to show the previous slide
+            if ( currentIndex > 0 ) {
+                setCurrentIndex( currentIndex - 1 );
+            };
+        };
+    };
+
     const slideImages = (index) => ({
         backgroundImage: `url(${SERVER}/product/images/${images[index]})`
     });
@@ -27,6 +88,11 @@ const ImageSliderContainer = (props) => {
                 images={images}
                 currentIndex={currentIndex}
                 goToSlide={goToSlide}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
                 slideImages={slideImages}
                 selectedImage={selectedImage}
             />
