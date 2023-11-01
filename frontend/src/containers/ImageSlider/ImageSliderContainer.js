@@ -64,12 +64,12 @@ const ImageSliderContainer = (props) => {
         if ( deltaX > 50 ) {
             // Swipe left to show the next slide
             if ( currentIndex < images.length - 1 ) {
-                setCurrentIndex( currentIndex + 1 );
+                setCurrentIndex((prevIndex) => prevIndex + 1);
             };
         } else if ( deltaX < -50 ) {
             // Swipe right to show the previous slide
             if ( currentIndex > 0 ) {
-                setCurrentIndex( currentIndex - 1 );
+                setCurrentIndex((prevIndex) => prevIndex - 1);
             };
         };
     };
