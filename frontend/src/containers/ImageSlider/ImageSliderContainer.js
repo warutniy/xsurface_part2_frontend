@@ -54,6 +54,7 @@ const ImageSliderContainer = (props) => {
     let touchStartX = 0;
 
     const handleTouchStart = (event) => {
+        isDragging = true;
         touchStartX = event.touches[0].clientX;
     };
 
@@ -65,13 +66,19 @@ const ImageSliderContainer = (props) => {
             // Swipe left to show the next slide
             if ( currentIndex < images.length - 1 ) {
                 setCurrentIndex((prevIndex) => prevIndex + 1);
+                isDragging = false;
             };
         } else if ( deltaX < -50 ) {
             // Swipe right to show the previous slide
             if ( currentIndex > 0 ) {
                 setCurrentIndex((prevIndex) => prevIndex - 1);
+                isDragging = false;
             };
         };
+    };
+
+    const handleTouchEnd = () => {
+        isDragging = false;
     };
 
     const slideImages = (index) => ({
@@ -93,6 +100,7 @@ const ImageSliderContainer = (props) => {
                 onMouseUp={handleMouseUp}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
                 slideImages={slideImages}
                 selectedImage={selectedImage}
             />

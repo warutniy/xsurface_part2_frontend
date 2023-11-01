@@ -13,6 +13,7 @@ const ImageSlider = (props) => {
             onMouseUp,
             onTouchStart, 
             onTouchMove,
+            onTouchEnd,
             slideImages, 
             selectedImage } = props;
 
@@ -24,6 +25,7 @@ const ImageSlider = (props) => {
             onMouseUp={onMouseUp} 
             onTouchStart={onTouchStart} 
             onTouchMove={onTouchMove} 
+            onTouchEnd={onTouchEnd}
         >
             <div className={styles.slide} style={slideImages(currentIndex)}></div>
             {/* <img className={styles.slide} src={`${SERVER}/product/images/${images[currentIndex]}`} alt={`Slide ${currentIndex}`} /> */}
