@@ -6,9 +6,37 @@
 .slide {
     width: 100%;
     height: 100%;
-    background-position: center;
-    background-size: cover;
-    /* object-fit: cover; */
+    touch-action: none;
+    text-align: center;
+    background-color: #eaebec;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.slide::-webkit-scrollbar {
+    display: none;
+}
+
+.slide_item {
+    height: 100%;
+    width: 100%;
+    touch-action: none;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1%;
+    transition: all 500ms ease-out;
+}
+
+.fast_animation {
+    transition: all 50ms linear;
+}
+
+.slide_item img {
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    background-color: none;
 }
 
 .button_container {
@@ -26,7 +54,12 @@
     width: 16px;
     height: 2px;
     border-radius: 2px;
+    background-color: #D9D9D9;
     cursor: pointer;
+}
+
+.selected_button {
+    background-color: #E13B30;
 }
 
 /* =============== MEDIA QUERIES (MEDIUM DEVICES) =============== */

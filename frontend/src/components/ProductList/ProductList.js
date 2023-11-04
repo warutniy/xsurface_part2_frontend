@@ -47,19 +47,20 @@ const ProductList = (props) => {
         </div>
       </div>
       { 
-        !products ? 
-        <div className={styles.loading_container}>
-          <div className={styles.loading}></div>
-          <h2>Loading...</h2>
-        </div> : (
-          term && products.length === 0 ?
-          <div className={styles.loading_container}>
-            <h2>Your search - <strong>{term}</strong> - did not match any items.</h2>
-          </div> :
-          <ProductCardContainer 
-            products={products}
-          /> 
-        ) 
+        !products 
+        ? <div className={styles.loading_container}>
+            <div className={styles.loading}></div>
+            <h2>Loading...</h2>
+          </div> 
+        : (
+            term && products.length === 0 
+            ? <div className={styles.loading_container}>
+                <h2>Your search - <strong>{term}</strong> - did not match any items.</h2>
+              </div> 
+            : <ProductCardContainer 
+                products={products}
+              /> 
+          )
       }
     </div>
   );
