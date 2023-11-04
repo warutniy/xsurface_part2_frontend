@@ -25,9 +25,6 @@
     display: inline-block;
     vertical-align: top;
     margin-right: 1%;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    overflow: hidden;
     transition: all 500ms ease-out;
 }
 
