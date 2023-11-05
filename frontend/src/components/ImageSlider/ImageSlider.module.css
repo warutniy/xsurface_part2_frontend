@@ -1,8 +1,6 @@
 .slide_container {
     position: relative;
     height: 100%;
-    border-radius: 16px;
-    overflow: hidden;
 }
 
 .slide {
@@ -12,10 +10,8 @@
     text-align: center;
     background-color: #eaebec;
     white-space: nowrap;
-    /* overflow-y: hidden;
-    overflow-x: hidden; */
-    border-radius: 16px;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .slide::-webkit-scrollbar {
