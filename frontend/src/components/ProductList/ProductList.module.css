@@ -69,9 +69,7 @@
     /* border: 1px solid red; */
 }
 
-.search_box form input[type="search"]::-webkit-search-decoration,
-.search_box form input[type="search"]::-webkit-search-results-button,
-.search_box form input[type="search"]::-webkit-search-results-decoration {
+.search_box form input[type="search"]::-webkit-search-decoration {
     display: none;
 }
 
