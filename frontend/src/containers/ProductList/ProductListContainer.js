@@ -30,11 +30,6 @@ const ProductListContainer = () => {
         };
     };
 
-    const resetInputTerm = () => {
-        setInputTerm("");
-        resetAutoCompleteData();
-    };
-
     const searchContainerStyle = (input) => (
         !input ? {} : { borderColor: 'rgba(223,225,229,0)', boxShadow: '0px 1px 6px rgba(32,33,36,.28)' }
     );
@@ -49,7 +44,6 @@ const ProductListContainer = () => {
                 inputTerm={inputTerm}
                 onChangeTerm={handleChangeTerm}
                 onSearchTerm={handleSearchTerm}
-                resetInputTerm={resetInputTerm}
                 searchContainerStyle={searchContainerStyle}
                 dropdownLineStyle={dropdownLineStyle}
             />
