@@ -112,7 +112,7 @@
     align-items: center;
     width: 76.11%;
     gap: 0.625em;
-    margin: 96px auto 0px;
+    margin: 196px auto 100px;
 }
 
 .loading_container h2 {
@@ -175,7 +175,8 @@
     }
 
     .loading_container {
-        margin-top: 76px;
+        /* margin-top: 166px; */
+        margin: 156px auto 90px;
     }
 }
 
@@ -194,6 +195,7 @@
     }
 
     .loading_container {
-        margin-top: 56px;
+        /* margin-top: 136px; */
+        margin: 116px auto 80px;
     }
 }
