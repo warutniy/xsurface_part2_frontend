@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import ProductList from '../../components/ProductList/ProductList';
 import { ProductContext } from '../../contexts/ProductContext';
 
@@ -7,6 +7,8 @@ const ProductListContainer = () => {
     const { fetchAutoCompleteData, resetAutoCompleteData, fetchSearchData } = useContext(ProductContext);
 
     const [inputTerm, setInputTerm] = useState("");
+
+    const searchRef = useRef(null);
 
     const handleChangeTerm = async (event) => {
         try {
@@ -25,6 +27,7 @@ const ProductListContainer = () => {
             setInputTerm(searchTerm);
             resetAutoCompleteData();
             await fetchSearchData(searchTerm);
+            searchRef.current.blur();
         } catch (error) {
             console.log(error);
         };
@@ -42,6 +45,7 @@ const ProductListContainer = () => {
         <>
             <ProductList 
                 inputTerm={inputTerm}
+                searchRef={searchRef}
                 onChangeTerm={handleChangeTerm}
                 onSearchTerm={handleSearchTerm}
                 searchContainerStyle={searchContainerStyle}

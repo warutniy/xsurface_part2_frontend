@@ -6,6 +6,7 @@ import { ProductContext } from '../../contexts/ProductContext';
 const ProductList = (props) => {
 
   const { inputTerm, 
+          searchRef,
           onChangeTerm, 
           onSearchTerm, 
           searchContainerStyle, 
@@ -26,6 +27,7 @@ const ProductList = (props) => {
               </svg>
               <input 
                 type='search' 
+                ref={searchRef}
                 placeholder='Name, Catalogue, Code' 
                 value={inputTerm || ''}
                 onChange={onChangeTerm}
