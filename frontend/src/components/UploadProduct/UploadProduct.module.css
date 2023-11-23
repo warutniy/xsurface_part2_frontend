@@ -232,6 +232,7 @@
     background-color: #FFFFFF;
     border: 1px solid #D9D9D9;
     border-radius: 24px;
+    cursor: pointer;
 }
 
 .cancel_btn p {
@@ -251,6 +252,7 @@
     padding: 16px 72px;
     background-color: #E04132;
     border-radius: 24px;
+    cursor: pointer;
 }
 
 .confirm_btn p {
